@@ -1,51 +1,117 @@
+/* --- IMPORTAMOS FUENTES PERSONALIZADAS --- */
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Press+Start+2P&family=Rubik+Bubbles&display=swap');
+
+/* --- RESET GENERAL --- */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-H1 {
-    margin-top: 50px;
-    flex-direction: column;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    }
-    h3 {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-
-body {
+html, body {
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-header {
-    margin-top: 50px;
+
+/* --- FONDO ESTÁTICO MEJORADO --- */
+body {
+    background-image: url('./image/fondo.jpg'); /* Cambia esto por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
 
-button {
-    background: black;
+/* Capa oscura para mejorar la visibilidad del contenido */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según necesites */
+    z-index: -1;
+}
+
+/* --- CABECERA --- */
+header {
+    margin-top: 60px;
+    text-align: center;
+    color: #fff;
+}
+
+h1, h2, h3 {
     color: white;
-    border: none;
-    position: relative;
-    height: 60px;
-    font-size: 1.6em;
-    padding: 0 2em;
-    cursor: pointer;
-    transition: 800ms ease all;
-    outline: none;
-    border-radius: 5px;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+    font-size: 3em;
     margin-bottom: 20px;
 }
 
-button:hover {
-    background: #fff;
-    color: #1AAB8A;
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
-button:before,
-button:after {
-    content: '';
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* --- IMÁGENES --- */
+img {
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* --- BOTONES INTERACTIVOS --- */
+.botones {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 80%;
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    height: 60px;
+    font-size: 1.4em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #ff512f, #dd2476);
+}
+
+/* --- EFECTO DE BORDE ANIMADO PARA BOTONES --- */
+button::before,
+button::after {
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -68,17 +134,38 @@ button:hover:after {
     transition: 800ms ease all;
 }
 
-.botones {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 10px;
+/* --- CURSOR PERSONALIZADO (Opcional) --- */
+body {
+    cursor: url('./image/iconoLupa.png'), auto;
 }
 
-h3 {
-    text-align: center;
-    font-size: 50px;
-    transition-delay: 2s;
+/* --- RESPONSIVE DESIGN PARA PANTALLAS PEQUEÑAS --- */
+@media (max-width: 768px) {
+    header {
+        margin-top: 30px;
+        text-align: center;
+        color: #fff;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    .botones {
+        grid-template-columns: 1fr; /* Un solo botón por fila */
+        gap: 10px;
+    }
+    img {
+        width: 90%;
+        height: auto;
+    }
+    button {
+        font-size: 1.2em;
+        padding: 15px;
+    }
 }
