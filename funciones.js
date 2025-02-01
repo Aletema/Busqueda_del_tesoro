@@ -1,30 +1,36 @@
-//genera un número aleatorio
+// Genera un número aleatorio
 let numeroAleatorio = tamanio => {
   return Math.floor(Math.random() * tamanio);
 }
 
-// obtiene la distancia de dos puntos
+// Obtiene la distancia entre dos puntos
 let distancia = (evento, objetivo) => {
   let diffX = evento.offsetX - objetivo.x;
   let diffY = evento.offsetY - objetivo.y;
   return Math.sqrt((diffX * diffX) + (diffY * diffY));
 }
 
-// devolver un String dependiendo de las distancias
+// Mejora en la sensibilidad de las pistas
 let getDistanciaPista = distancia => {
-  if (distancia < 30) {
-    return "¡Hirviendo!";
-  } else if (distancia < 50) {
-    return "Muy caliente";
-  } else if (distancia < 70) {
-    return "Caliente";
-  } else if (distancia < 100) {
-    return "Tibio";
-  } else if (distancia < 180) {
-    return "Frio";
-  } else if (distancia < 350) {
-    return "Realmente Frio";
+  if (distancia < 10) {
+    return "🔥 ¡Ardiendo! 🔥";
+  } else if (distancia < 25) {
+    return "¡Hirviendo! ♨️";
+  } else if (distancia < 45) {
+    return "Muy caliente 🔥";
+  } else if (distancia < 65) {
+    return "Caliente 🌡️";
+  } else if (distancia < 90) {
+    return "Tibio 🌤️";
+  } else if (distancia < 140) {
+    return "Fresco 🍃";
+  } else if (distancia < 200) {
+    return "Frío ❄️";
+  } else if (distancia < 300) {
+    return "Realmente frío 🧊";
+  } else if (distancia < 450) {
+    return "Congelado! 🥶";
   } else {
-    return "Congelado!";
+    return "❄️ EXTREMADAMENTE CONGELADO ❄️";
   }
 }
